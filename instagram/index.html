@@ -1,0 +1,49 @@
+<!-- http://instafeedjs.com/ -->
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head> 
+		<meta charset="utf-8" />
+		<title>instagram</title>
+		<style>
+		figure{
+			margin: 0;
+			padding:0;
+			display: inline-block;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="container">
+		<h1>Instagram Wall</h1>
+		<div id="instafeed"></div>
+		</div> <!-- container -->
+ 		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+ 		<script type="text/javascript" src="instafeed.min.js"></script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+//created a var who will make a request
+    var userFeed = new Instafeed({
+    	// take the info of a user
+               get: 'user',
+    	// with the id instagram 
+        userId: 786763336,
+        // access to the api and make the requiest for my session of instagram
+	accessToken: '786763336.467ede5.38cd7745ca8e405fac045c3d39e7dcc8',
+        clientId: '3a10396976e747c38d86b5c9f06e1f66',
+        // create a template with then json request
+      	template: '<figure><img src="{{image}}" /><figcaption>"{{caption}}"</figcaption></figure>',
+      	//limit the numbers of image to 10
+      	 limit: 10,
+      	 //  select the standar resolution for the photo of indtagraù
+      	 resolution: 'standard_resolution'
+      	
+    });
+    //run the instance and the plugin
+    userFeed.run();
+    });
+</script>
+	</body>
+</html>
